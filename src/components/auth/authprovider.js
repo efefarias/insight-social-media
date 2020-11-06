@@ -1,9 +1,5 @@
 const bcrypt = require('bcryptjs')
 
-const INVALID_PASSWORD = 'Invalid password';
-const INVALID_USER = 'Invalid user';
-const FAILED_LOGIN = 'Faile to login';
-
 export default {
     // called when the user attempts to log in
     login: ({ username, password }) =>  {
@@ -25,10 +21,6 @@ export default {
                 });
         })   
     },
-    getIdentity: () => {
-        const { name } = JSON.parse(localStorage.getItem('auth'));
-        return { name };
-    },
     // called when the user clicks on the logout button
     logout: () => {
         localStorage.removeItem('auth');
@@ -37,7 +29,7 @@ export default {
     // called when the API returns an error
     checkError: ({ status }) => {
         if (status === 401 || status === 403) {
-            localStorage.removeItem('auth');
+            localStorage.removeItem('username');
             return Promise.reject();
         }
         return Promise.resolve();
