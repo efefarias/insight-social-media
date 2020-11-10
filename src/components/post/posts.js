@@ -1,19 +1,16 @@
 import * as React from "react";
-import { List, Datagrid, TextField, ReferenceField, Show, SimpleShowLayout, DateField, RichTextField, Pagination } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField, Show, SimpleShowLayout, DateField, RichTextField } from 'react-admin';
 
-const PostPagination = props => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />;
-const roleAdmin = "1";
+const roleAdmin = "1"
 
-export const PostList = props => (
-    <List {...props} pagination={<PostPagination />}>
+export const PostList = ({ permissions, ...props }) => (
+    <List bulkActionButtons={false} {...props}>
         <Datagrid>
            <TextField source="id" />
-           {permissions => [
-                <ReferenceField source={permissions === roleAdmin ? "userId" : "userId"} 
-                                reference={permissions === roleAdmin ? "users" : "users"}>
-                    <TextField source="name" />
-                </ReferenceField>
-            ]}
+            {permissions === roleAdmin ? <ReferenceField source="userId" reference="users">
+                                            <TextField source="name" />
+                                         </ReferenceField> 
+                                        : null} 
             <TextField source="title" />
             <TextField source="body" />
         </Datagrid>

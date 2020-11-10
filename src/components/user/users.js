@@ -3,7 +3,7 @@ import { List, Datagrid, TextField  } from 'react-admin';
 import UrlField from './urlfield';
 
 export const UserList = props => (
-    <List {...props}>
+    <List bulkActionButtons={false} {...props}>
         <Datagrid>
             <TextField source="id" />
             <TextField source="name" />
