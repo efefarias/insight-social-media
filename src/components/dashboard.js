@@ -1,35 +1,57 @@
 import * as React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { Title, Resource } from 'react-admin';
-import { PostShow } from '../components/post/posts'
-import { TabbedShowLayout, Tab, List, Datagrid, TextField, ReferenceField, EmailField } from 'react-admin'
-import { Chart } from "react-google-charts"; 
+import { Title } from 'react-admin';
 
-const roleAdmin = "1";
-
-const data = [
-    ["Element", "Density", { role: "style" }],
-    ["Copper", 8.94, "#b87333"], // RGB value
-    ["Silver", 10.49, "silver"], // English color name
-    ["Gold", 19.3, "gold"],
-    ["Platinum", 21.45, "color: #e5e4e2"] // CSS-style declaration
-  ];
+const roleAdmin = "1"
 
 export default ({ permissions }) => (
     <Card>
-        <Title title="Dashboard"/>
-        <CardContent>Available Reports</CardContent>
+        <Title title="Dashboard" />
         {permissions === roleAdmin
-                    ? <div className="App">
-                    <Chart
-                      chartType="ColumnChart"
-                      width="100%"
-                      height="400px"
-                      data={data}
-                    />
-                  </div>
-                    : null}
-
+            ? <CardContent>Reports availables to Admins</CardContent>
+            : <CardContent>Reports availables to Users</CardContent>
+        }
     </Card>
 );
+
+/*import React from 'react';
+import {getApiData} from '../services/services';
+import { Chart } from "react-google-charts"; 
+
+const data = []
+
+const options = {
+    title: "Age vs. Weight comparison",
+    hAxis: { title: "Age", viewWindow: { min: 0, max: 15 } },
+    vAxis: { title: "Weight", viewWindow: { min: 0, max: 15 } },
+    legend: "none"
+  };
+
+class Dashboard extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      result:''
+    }
+  }
+  componentDidMount(){
+    getApiData().then(data=>{
+        console.log(data);
+     });
+ }
+  render(){
+    return (
+        <Chart
+          chartType="ScatterChart"
+          data={data}
+          options={options}
+          width="80%"
+          height="400px"
+          legendToggle
+        />
+      );
+  }
+}
+
+export default Dashboard;*/
