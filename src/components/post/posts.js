@@ -1,5 +1,5 @@
 import * as React from "react";
-import { List, Datagrid, TextField, ReferenceField, Show, SimpleShowLayout, DateField, RichTextField } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
 
 const roleAdmin = "1"
 
@@ -15,15 +15,4 @@ export const PostList = ({ permissions, ...props }) => (
             <TextField source="body" />
         </Datagrid>
     </List>
-);
-
-export const PostShow = (props) => (
-    <Show {...props}>
-        <SimpleShowLayout>
-            <TextField source="title" />
-            <TextField source="teaser" />
-            <RichTextField source="body" />
-            <DateField label="Publication date" source="created_at" />
-        </SimpleShowLayout>
-    </Show>
 );

@@ -3,7 +3,6 @@ import { stringify } from 'query-string';
 
 const apiUrl = 'http://localhost:3001';
 const httpClient = fetchUtils.fetchJson;
-const roleAdmin = "1";
 
 export default {
     getList: (resource, params) => {

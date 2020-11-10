@@ -1,5 +1,5 @@
 import * as React from "react";
-import { List, Datagrid, TextField, ReferenceField, SimpleShowLayout, DateField, RichTextField, Pagination } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
 
 const roleAdmin = "1"
 
