@@ -4,15 +4,15 @@ import UrlField from './urlfield';
 
 export const UserList = props => (
     <List {...props}>
-        <Datagrid rowClick="edit">
+        <Datagrid>
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="username" />
             <UrlField source="email" />
-            <TextField source="address.street" />
+            <TextField label="Adress" source="address.street" />
             <TextField source="phone" />
             <UrlField source="website" />
-            <TextField source="company.name" />
+            <TextField label="Company" source="company.name" />
         </Datagrid>
     </List>
 );
