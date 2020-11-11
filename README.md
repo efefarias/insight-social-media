@@ -37,3 +37,17 @@ To run this api we need the port 3000 at http://localhost released, and to run a
 ```bash
 yarn run start
 ```
+
+In you very first time logging in to application, we have the users below
+
+Admin profile:
+```bash
+username = Bret
+password = 123
+```
+
+User profile:
+```bash
+username = Antonette
+password = 123
+```
